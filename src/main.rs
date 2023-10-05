@@ -4,6 +4,9 @@ mod gateway;
 mod infrastructure;
 mod transport;
 
+#[cfg(test)]
+mod test;
+
 #[macro_use]
 extern crate rocket;
 

@@ -3,6 +3,6 @@
 pub mod prelude;
 
 pub mod product;
+pub mod responders;
 pub mod shopping_cart;
 pub mod shopping_cart_product;
-pub mod responders;

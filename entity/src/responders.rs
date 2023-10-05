@@ -1,8 +1,8 @@
-use rocket::{Request, response, Response};
+use crate::product::Model as ProductModel;
 use rocket::http::ContentType;
 use rocket::response::Responder;
 use rocket::serde::json::serde_json;
-use crate::product::Model as ProductModel;
+use rocket::{response, Request, Response};
 
 impl<'r> Responder<'r, 'static> for ProductModel {
     fn respond_to(self, req: &'r Request<'_>) -> response::Result<'static> {

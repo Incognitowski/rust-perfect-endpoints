@@ -1,14 +1,14 @@
-use rocket::{Request, Response, response};
-use rocket::http::ContentType;
-use rocket::response::Responder;
 use crate::gateway::price_conversion_gateway::PriceConversionGateway;
 use entity::prelude::Product;
 use entity::product::Model as ProductModel;
+use rocket::http::ContentType;
+use rocket::response::Responder;
 use rocket::serde::Serialize;
+use rocket::{response, Request, Response};
 use sea_orm::prelude::Decimal;
 use sea_orm::{DatabaseConnection, EntityTrait};
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Serialize, PartialEq)]
 #[serde(crate = "rocket::serde")]
 pub struct ProductQuoteResponse {
     pub product: ProductModel,

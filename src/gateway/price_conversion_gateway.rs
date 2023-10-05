@@ -37,6 +37,5 @@ struct PriceConversionRequest<'r> {
 
 #[derive(Debug, Deserialize)]
 struct PriceConversionResponse {
-    pub usd: Decimal,
     pub btc: Decimal,
 }

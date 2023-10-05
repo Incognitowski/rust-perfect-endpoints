@@ -15,6 +15,5 @@ pub async fn product_price_quote_route(
     let database_connection = &app_state.inner().db_connection;
     let price_conversion_client =
         PriceConversionClient::new(&app_state.inner().price_conversion_host);
-        product_price_quote_use_case(product_id, database_connection, &price_conversion_client)
-            .await
+    product_price_quote_use_case(product_id, database_connection, &price_conversion_client).await
 }
