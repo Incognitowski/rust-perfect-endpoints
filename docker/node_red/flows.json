@@ -1,0 +1,74 @@
+[
+  {
+    "id": "f6f2187d.f17ca8",
+    "type": "tab",
+    "label": "Convert Price",
+    "disabled": false,
+    "info": ""
+  },
+  {
+    "id": "fd5a09e1c8a952f7",
+    "type": "http in",
+    "z": "f6f2187d.f17ca8",
+    "name": "Convert USD to BTC",
+    "url": "/price-converter/usd-to-btc",
+    "method": "post",
+    "upload": false,
+    "swaggerDoc": "",
+    "x": 350,
+    "y": 280,
+    "wires": [
+      [
+        "1bf72913b2e6c4ce",
+        "94186af01821e10f"
+      ]
+    ]
+  },
+  {
+    "id": "1bf72913b2e6c4ce",
+    "type": "function",
+    "z": "f6f2187d.f17ca8",
+    "name": "Apply Quote",
+    "func": "var usd_value = msg.payload.usd;\nvar btc_value = (Math.random() * (0.00000120 - 0.000000200) + 0.0000200) * usd_value;\nbtc_value = btc_value.toFixed(10);\n\nmsg.payload = {\n    usd: usd_value,\n    btc: btc_value,\n};\n\nreturn msg;",
+    "outputs": 1,
+    "timeout": 0,
+    "noerr": 0,
+    "initialize": "",
+    "finalize": "",
+    "libs": [],
+    "x": 650,
+    "y": 280,
+    "wires": [
+      [
+        "d6ea8aa38f35b12a"
+      ]
+    ]
+  },
+  {
+    "id": "d6ea8aa38f35b12a",
+    "type": "http response",
+    "z": "f6f2187d.f17ca8",
+    "name": "OK",
+    "statusCode": "200",
+    "headers": {},
+    "x": 950,
+    "y": 280,
+    "wires": []
+  },
+  {
+    "id": "94186af01821e10f",
+    "type": "debug",
+    "z": "f6f2187d.f17ca8",
+    "name": "debug 1",
+    "active": true,
+    "tosidebar": true,
+    "console": false,
+    "tostatus": false,
+    "complete": "false",
+    "statusVal": "",
+    "statusType": "auto",
+    "x": 540,
+    "y": 380,
+    "wires": []
+  }
+]
